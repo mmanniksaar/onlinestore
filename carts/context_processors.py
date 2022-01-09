@@ -1,6 +1,8 @@
 from carts.models import Cart, CartItem
 from carts.views import _cart_id
 
+
+# count total cart items; included in settings.py TEMPLATES section (now its available for all templates)
 def counter(request):
 
     cart_count = 0
