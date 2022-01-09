@@ -72,7 +72,7 @@ def cart(request, total = 0, quantity=0, cart_items=None, ):
         grand_total = total + tax
 
 
-     except ObjectDoesNotExist: # do nothing if obj not exists
+     except ObjectDoesNotExist: # do nothing if obj not exist
          pass
 
      context = {
