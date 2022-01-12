@@ -48,18 +48,19 @@
 		</div>  <!-- category-wrap.// -->
 	</div> <!-- col.// -->
 
-	<a href="{% url 'store' %}" style="background-color:#474539"; class="btn btn-primary">Store</a>
+	<a href="{% url 'store' %}" style="background-color:#474539" class="btn btn-primary">Store</a>
+
 	<div class="col-lg  col-md-6 col-sm-12 col ">
 	<form action="{% url 'search' %}" class="search" method="GET" style="margin-bottom: 0px;">
 			<div class="input-group w-100">
 			    <input type="text" class="form-control" style="width:60%;" placeholder="Search" name="keyword">
 
-			    <div class="input-group-append">
-			      <button class="btn btn-primary" type="submit" style="background-color:#474539";>
+<!--			    <div class="input-group-append">-->
+			      <button class="btn btn-primary" type="submit" style="background-color:#474539">
 			        <i class="fa fa-search"></i>
 			      </button>
 			    </div>
-		    </div>
+<!--		    </div>-->
 		</form> <!-- search-wrap .end// -->
 	</div> <!-- col.// -->
 
@@ -72,9 +73,16 @@
 							<a href="./register.html"> Register</a>
 						</div>
 					</div>
+
 					<a href="{% url 'cart' %}" class="widget-header pl-3 ml-3">
-						<div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
+					{% if cart_count == 0 %}
+						<div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart" style="color:#474539"></i></div>
 						<span class="badge badge-pill badge-danger notify">{{ cart_count }}</span>
+						{% else %}
+						<div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart" style="color:#008561"></i></div>
+						<span class="badge badge-pill badge-danger notify">{{ cart_count }}</span>
+
+					{% endif %}
 					</a>
 				</div> <!-- widgets-wrap.// -->
 			</div> <!-- col.// -->

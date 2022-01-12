@@ -5,7 +5,11 @@
 <!-- ========================= SECTION PAGETOP ========================= -->
 <section class="section-pagetop bg" style="background-color: #92b0ce;">
     <div class="container">
-        <h2 class="title-page">Enjoyable shopping!</h2>
+		{% if 'search' in request.path %}
+        	<h2 class="title-page">Search result:</h2>
+		{% else %}
+        	<h2 class="title-page">Enjoyable shopping!</h2>
+		{% endif %}
     </div> <!-- container //  -->
 </section>
 <!-- ========================= SECTION INTRO END// ========================= -->
@@ -21,7 +25,7 @@
 	<article class="filter-group">
 		<header class="card-header">
 			<a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
-				<i class="icon-control fa fa-chevron-down"></i>
+				<i class="icon-control fa fa-chevron-down" style="color:#474539"></i>
 				<h6 style="color:#474539"; class="title">Categories</h6>
 			</a>
 		</header>
@@ -38,42 +42,42 @@
 			</div> <!-- card-body.// -->
 		</div>
 	</article> <!-- filter-group  .// -->
-	<article class="filter-group">
-		<header class="card-header">
-			<a href="#" data-toggle="collapse" data-target="#collapse_4" aria-expanded="true" class="">
-				<i class="icon-control fa fa-chevron-down"></i>
-				<h6 class="title">Sizes </h6>
-			</a>
-		</header>
-		<div class="filter-content collapse show" id="collapse_4" style="">
-			<div class="card-body">
-			  <label class="checkbox-btn">
-			    <input type="checkbox">
-			    <span class="btn btn-light"> XS </span>
-			  </label>
+<!--	<article class="filter-group">-->
+<!--		<header class="card-header">-->
+<!--			<a href="#" data-toggle="collapse" data-target="#collapse_4" aria-expanded="true" class="">-->
+<!--				<i class="icon-control fa fa-chevron-down"></i>-->
+<!--				<h6 class="title">Sizes </h6>-->
+<!--			</a>-->
+<!--		</header>-->
+<!--		<div class="filter-content collapse show" id="collapse_4" style="">-->
+<!--			<div class="card-body">-->
+<!--			  <label class="checkbox-btn">-->
+<!--			    <input type="checkbox">-->
+<!--			    <span class="btn btn-light"> XS </span>-->
+<!--			  </label>-->
 
-			  <label class="checkbox-btn">
-			    <input type="checkbox">
-			    <span class="btn btn-light"> SM </span>
-			  </label>
+<!--			  <label class="checkbox-btn">-->
+<!--			    <input type="checkbox">-->
+<!--			    <span class="btn btn-light"> SM </span>-->
+<!--			  </label>-->
 
-			  <label class="checkbox-btn">
-			    <input type="checkbox">
-			    <span class="btn btn-light"> LG </span>
-			  </label>
+<!--			  <label class="checkbox-btn">-->
+<!--			    <input type="checkbox">-->
+<!--			    <span class="btn btn-light"> LG </span>-->
+<!--			  </label>-->
 
-			  <label class="checkbox-btn">
-			    <input type="checkbox">
-			    <span class="btn btn-light"> XXL </span>
-			  </label>
-		</div><!-- card-body.// -->
-		</div>
-	</article> <!-- filter-group .// -->
+<!--			  <label class="checkbox-btn">-->
+<!--			    <input type="checkbox">-->
+<!--			    <span class="btn btn-light"> XXL </span>-->
+<!--			  </label>-->
+<!--		</div>&lt;!&ndash; card-body.// &ndash;&gt;-->
+<!--		</div>-->
+<!--	</article> &lt;!&ndash; filter-group .// &ndash;&gt;-->
 
 	<article class="filter-group">
 		<header class="card-header">
 			<a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="">
-				<i class="icon-control fa fa-chevron-down"></i>
+				<i class="icon-control fa fa-chevron-down" style="color:#474539"> </i>
 				<h6 style="color:#474539"; class="title">Price range </h6>
 			</a>
 		</header>
@@ -97,17 +101,24 @@
 				<div class="form-group text-right col-md-6">
 				  <label>Max</label>
 				  	<select class="mr-2 form-control">
-						<option value="50">$50</option>
-						<option value="100">$100</option>
-						<option value="150">$150</option>
-						<option value="200">$200</option>
-						<option value="500">$500</option>
-						<option value="1000">$1000</option>
-						<option value="2000">$2000+</option>
+						<option value="50">€ 0.5</option>
+						<option value="100">€ 5</option>
+						<option value="150">€ 10</option>
+						<option value="200">€ 20</option>
+						<option value="500">€ 25</option>
+						<option value="1000">€ 30</option>
+						<option value="2000">€ 50+</option>
+						<option value="50">€ 60</option>
+						<option value="100">€ 80</option>
+						<option value="150">€100</option>
+						<option value="200">€200</option>
+						<option value="500">€500</option>
+						<option value="1000">€1000</option>
+						<option value="2000">€2000+</option>
 					</select>
 				</div>
 				</div> <!-- form-row.// -->
-				<button style="background-color:#474539"; class="btn btn-block btn-primary">Apply</button>
+				<button style="background-color:#474539" class="btn btn-block btn-primary">Apply</button>
 			</div><!-- card-body.// -->
 		</div>
 	</article> <!-- filter-group .// -->
@@ -120,11 +131,11 @@
 <header class="border-bottom mb-4 pb-3">
 		<div class="form-inline">
 			<span class="mr-md-auto"><b>{{ product_count }}</b> Items found </span>
-
 		</div>
 </header><!-- sect-heading -->
 
 <div class="row">
+	{% if products %}
     {% for product in products %}
 	<div class="col-md-4">
 		<figure class="card card-product-grid">
@@ -145,14 +156,24 @@
 		</figure>
 	</div> <!-- col.// -->
     {% endfor %}
+	{% else %}
+		<div class="text-center">
+			<h2> No items found. </h2>
+			<hr>
+			<br>
+			<a href="{% url 'store' %}" class="btn btn-primary" style="background-color:#474539"; >Continue shopping</a>
+		</div>
+
+
+	{% endif %}
 </div> <!-- row end.// -->
 
 
 <nav class="mt-4" aria-label="Page navigation sample">
 	{% if products.has_other_pages %}
-  <ul class="pagination">
+  <ul class="pagination" >
     {% if products.has_previous %}
- 	   <li class="page-item "><a class="page-link"  href="?page={{ products.previous_page_number }}">Previous</a></li>
+ 	   <li class="page-item " ><a class="page-link"  href="?page={{ products.previous_page_number }}">Previous</a></li>
     {% else %}
  	   <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
     {% endif %}
@@ -165,7 +186,7 @@
 		{% endif %}
 	{% endfor %}
     {% if products.has_next %}
-	    <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}">Next</a></li>
+	    <li class="page-item"><a class="page-link"  href="?page={{ products.next_page_number }}">Next</a></li>
 	  {% else %}
  	   <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
     {% endif %}

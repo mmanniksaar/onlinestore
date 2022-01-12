@@ -2,9 +2,15 @@
 {% load static %}
 
 {% block content %}
+<link href="{% static 'css/zoom.css' %}" rel="stylesheet" type="text/css"/>
 
 <section class="section-content padding-y bg">
 <div class="container">
+
+{% block script %}
+<script type="text/javascript" src="{% static 'js/zoom.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-2.0.0.min.js' %}"></script>
+{% endblock %}
 
 <!-- ============================ COMPONENT 1 ================================= -->
 {% if not cart_items %}
@@ -32,25 +38,27 @@
 <tr>
 	<td>
 		<figure class="itemside align-items-center">
-			<div class="aside"><img src="{{ cart_item.product.product_image.url }}" class="img-sm"></div>
+			<div><img src="{{ cart_item.product.product_image.url }}" class="zoom" width=80 height=80 alt="{{ cart_item.product.product_name }}"></div>
 			<figcaption class="info">
 				<a href="{{ cart_item.product.get_url }}" class="title text-dark">{{ cart_item.product.product_name }}</a>
 			</figcaption>
 		</figure>
 	</td>
 	<td>
-		<!-- col.// -->
-					<div class="col">
-						<div class="input-group input-spinner">
-							<div class="input-group-prepend">
-							<a href="{% url 'remove_to_cart' cart_item.product.id %}" class="btn btn-light" type="button" id="button-minus"> <i class="fa fa-minus"></i> </a>
-							</div>
-							<input type="text" class="form-control"  value="{{ cart_item.quantity }}">
-							<div class="input-group-append">
-							<a href="{% url 'add_to_cart' cart_item.product.id %}" class="btn btn-light" type="button" id="button-plus"> <i class="fa fa-plus"></i> </a>
-							</div>
-						</div> <!-- input-group.// -->
-					</div> <!-- col.// -->
+
+	<!-- col.// -->
+	<div class="col">
+		<div class="input-group input-spinner">
+<!--			<div class="input-group-prepend">-->
+				<a href="{% url 'remove_to_cart' cart_item.product.id %}" class="btn btn-light" type="button" id="button-minus"> <i class="fa fa-minus"></i> </a>
+<!--			</div>-->
+
+			<input type="text" class="form-control"  value="{{ cart_item.quantity }}">
+<!--			<div class="input-group-append">-->
+				<a href="{% url 'add_to_cart' cart_item.product.id %}" class="btn btn-light" type="button" id="button-plus"> <i class="fa fa-plus"></i> </a>
+<!--			</div>-->
+		</div> <!-- input-group.// -->
+	</div> <!-- col.// -->
 	</td>
 	<td>
 		<div class="price-wrap">
@@ -66,8 +74,12 @@
 
 </tbody>
 </table>
-</div> <!-- card.// -->
 
+</div> <!-- card.// -->
+<br>
+	<div class="text-center">
+		<a href="{% url 'store' %}" class="btn btn-primary" style="background-color:#474539"; >Continue shopping</a>
+	</div>
 	</aside> <!-- col.// -->
 	<aside class="col-lg-3">
 
@@ -90,7 +102,7 @@
 				<img src="{% static './images/misc/payment-banners.webp' %}" height="160">
 			</p>
 			<a href="./place-order.html" class="btn btn-primary btn-block" style="background-color:#474539";> Checkout </a>
-			<a href="{% url 'store' %}" class="btn btn-light btn-block">Continue Shopping</a>
+<!--			<a href="{% url 'store' %}" class="btn btn-light btn-block">Continue Shopping</a>-->
 		</div> <!-- card-body.// -->
 		</div> <!-- card.// -->
 
@@ -100,8 +112,30 @@
 </div> <!-- row.// -->
 <!-- ============================ COMPONENT 1 END .// ================================= -->
 
+
+
+
 </div> <!-- container .//  -->
 </section>
 <!-- ========================= SECTION CONTENT END// ========================= -->
+
+<!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+
+<!--			&lt;!&ndash; The Modal &ndash;&gt;-->
+<!--		<div id="myModal" class="modal">-->
+<!--   			<img class="modal-content" id="img01">-->
+<!--		<div id="caption"></div>-->
+<!--		</div>-->
 
 {% endblock %}
