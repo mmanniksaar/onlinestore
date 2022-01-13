@@ -1959,7 +1959,7 @@ select.form-control:focus::-ms-value {
 
 .col-form-label-lg {
   padding-top: calc(0.6rem + 1px);
-  padding-bottom: calc(0.6rem + 1px);
+  padding-bottom: calc(0.0rem + 1px);
   font-size: 1.2rem;
   line-height: 1.5;
 }
@@ -2440,26 +2440,26 @@ fieldset:disabled a.btn {
 
 .btn-success {
   color: #fff;
-  background-color: #00b517;
-  border-color: #00b517;
+  background-color: #474539;
+  border-color: #474539;
 }
 .btn-success:hover {
   color: #fff;
-  background-color: #008f12;
-  border-color: #008211;
+  background-color: #474539;
+  border-color: #474539;
 }
 .btn-success:focus, .btn-success.focus {
   box-shadow: 0 0 0 0.2rem rgba(38, 192, 58, 0.5);
 }
 .btn-success.disabled, .btn-success:disabled {
   color: #fff;
-  background-color: #00b517;
-  border-color: #00b517;
+  background-color: #474539;
+  border-color: #474539;
 }
 .btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active, .show > .btn-success.dropdown-toggle {
   color: #fff;
-  background-color: #008211;
-  border-color: #00750f;
+  background-color: #474539;
+  border-color: #474539;
 }
 .btn-success:not(:disabled):not(.disabled):active:focus, .btn-success:not(:disabled):not(.disabled).active:focus, .show > .btn-success.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(38, 192, 58, 0.5);

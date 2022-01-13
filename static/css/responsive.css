@@ -40,7 +40,7 @@
     display: inline-block;
   }
   .section-header .header-main .search {
-    margin-bottom: 0px;
+    margin-bottom: 1rem;
   }
 
   .item-feature {
