@@ -20,6 +20,6 @@ class CartItem(models.Model):
     def sub_total(self):
         return self.product.price * self.quantity
 
-    def __str__(self): #unicode
+    def __unicode__(self): #unicode
         return self.product
 
