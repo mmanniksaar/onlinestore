@@ -25,7 +25,7 @@ SECRET_KEY = '49!jl1y#q6yf-un@(!$lwjql-&@8*pu2xy8af^2gcvxyh4$w-('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.onlinestore.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.onlinestore.herokuapp.com', 'safe-sands-73700.herokuapp.com']
 
 # Application definition
 
@@ -86,7 +86,7 @@ SILENCED_SYSTEM_CHECKS = ['security.W019']
 
 WSGI_APPLICATION = 'onlinestore.wsgi.application'
 
-AUTH_USER_MODEL = 'accounts.Account'
+#AUTH_USER_MODEL = 'accounts.Account'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
