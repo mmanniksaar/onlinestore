@@ -86,7 +86,7 @@ SILENCED_SYSTEM_CHECKS = ['security.W019']
 
 WSGI_APPLICATION = 'onlinestore.wsgi.application'
 
-AUTH_USER_MODEL = 'accounts.Account'
+#AUTH_USER_MODEL = 'accounts.Account'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
