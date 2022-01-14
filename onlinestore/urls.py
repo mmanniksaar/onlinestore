@@ -24,5 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('store/', include('store.urls')),                      # 'store/' store.urls suunab faili store/urls.py
     path('cart/', include('carts.urls')),
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
