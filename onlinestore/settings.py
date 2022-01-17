@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     #'whitenoise.runserver_nostatic',
     'admin_interface',
     'colorfield',
+    'cloudinary_storage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,7 +44,16 @@ INSTALLED_APPS = [
     'accounts',
     'store',
     'carts',
+    'cloudinary',
 ]
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'hr4oojtvo',
+    'API_KEY': '371166276688367',
+    'API_SECRET': 'Ur_SBaFjM7S_TkGMmt47MFAv9Yc',
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
