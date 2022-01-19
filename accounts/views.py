@@ -13,6 +13,11 @@ from django.utils.encoding import force_bytes
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage
 
+def admin(request):
+    return redirect('/admin')
+
+
+
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)

@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = config('SECRET_KEY')
-SECRET_KEY = '###'
+SECRET_KEY = '49!jl1y#q6yf-un@(!$lwjql-&@8*pu2xy8af^2gcvxyh4$w-('
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = config('DEBUG', cast=bool)
@@ -35,9 +35,9 @@ INSTALLED_APPS = [
 
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': '####',
-    'API_KEY': '####',
-    'API_SECRET': '####',
+    'CLOUD_NAME': 'hr4oojtvo',
+    'API_KEY': '371166276688367',
+    'API_SECRET': 'Ur_SBaFjM7S_TkGMmt47MFAv9Yc',
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
@@ -81,13 +81,13 @@ WSGI_APPLICATION = 'onlinestore.wsgi.application'
 
 AUTH_USER_MODEL = 'accounts.Account'
 
-# Database
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': str(BASE_DIR / 'db.sqlite3'),
-    }
-}
+#Database
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': str(BASE_DIR / 'db.sqlite3'),
+#     }
+# }
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -138,12 +138,12 @@ MEDIA_ROOT = BASE_DIR /'media/'
 #SMTP config
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = '####'
-EMAIL_HOST_PASSWORD = '#####'
+EMAIL_HOST_USER = 'onlinestorez700@gmail.com'
+EMAIL_HOST_PASSWORD = 'mRibonukleiin1977+'
 EMAIL_USE_TLS = True
 
 
 
-# if 'DATABASE_URL' in os.environ:
-#     import dj_database_url
-#     DATABASES = {'default': dj_database_url.config()}
+if 'DATABASE_URL' in os.environ:
+    import dj_database_url
+    DATABASES = {'default': dj_database_url.config()}

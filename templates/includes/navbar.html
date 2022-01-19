@@ -3,29 +3,21 @@
 
 <header class="section-header">
 
+
 <nav class="navbar p-md-0 navbar-expand-sm navbar-light border-bottom">
 <div class="container">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarTop4">
-    <ul class="navbar-nav mr-auto">
-    	<li class="nav-item dropdown">
-		 	<a href="#" class="nav-link">   English </a>
-		</li>
-		<li class="nav-item dropdown">
-			<a href="#" class="nav-link"> EUR </a>
-		</li>
-    </ul>
+
     <ul class="navbar-nav">
+	{% if user.is_admin == True %}
+	{% load admin_urls %}
+		<a href="{% url 'admin' %}" class="btn btn-secondary">ADMIN DASHBOARD</a>
+		{% else %}
 		<li><a href="#" class="nav-link"> <i class="fa fa-envelope"></i> Email </a></li>
 		<li><a href="#" class="nav-link"> <i class="fa fa-phone"></i> Call us </a></li>
-
-	{% if user.is_admin == True %}
-		{% load admin_urls %}
-		<!--<button href="{% url 'store' %}">ADMIN DASHBOARD</button>-->
-		<a href="admin/" class="btn btn-secondary">ADMIN DASHBOARD</a>
-
 	{% endif %}
 
 	</ul> <!-- list-inline //  -->
@@ -90,6 +82,7 @@
 							<a href="{% url 'logout' %}"> Logout</a>
 					</div>
 					{% endif %}
+					<br>
 					<a href="{% url 'cart' %}" class="widget-header pl-3 ml-3">
 					{% if cart_count == 0 %}
 						<div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart" style="color:#474539"></i></div>
@@ -106,8 +99,5 @@
 	</div> <!-- container.// -->
 
 </section> <!-- header-main .// -->
-
-
-
 
 </header> <!-- section-header.// -->
