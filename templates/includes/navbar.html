@@ -20,6 +20,7 @@
     <ul class="navbar-nav">
 		<li><a href="#" class="nav-link"> <i class="fa fa-envelope"></i> Email </a></li>
 		<li><a href="#" class="nav-link"> <i class="fa fa-phone"></i> Call us </a></li>
+	{% if user.is_admin == True %}
 		<button>ADMIN DASHBOARD</button>
 	</ul> <!-- list-inline //  -->
   </div> <!-- navbar-collapse .// -->
