@@ -172,15 +172,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 #EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'devlop.manniksaar@gmail.com'
+EMAIL_HOST_USER = 'onlinestorez700@gmail.com'
 EMAIL_HOST_PASSWORD = 'mRibonukleiin1977+'
 EMAIL_USE_TLS = True
 
 
 
-if 'DATABASE_URL' in os.environ:
-    import dj_database_url
-    DATABASES = {'default': dj_database_url.config()}
+# if 'DATABASE_URL' in os.environ:
+#     import dj_database_url
+#     DATABASES = {'default': dj_database_url.config()}
 
 
 
