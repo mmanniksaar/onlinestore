@@ -159,6 +159,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 STATICFILES_DIRS = [
     'onlinestore/static',
 ]
@@ -166,10 +168,7 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR /'media/'
 
-DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
-
 #SMTP config
-#EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'onlinestorez700@gmail.com'
@@ -181,9 +180,3 @@ EMAIL_USE_TLS = True
 if 'DATABASE_URL' in os.environ:
     import dj_database_url
     DATABASES = {'default': dj_database_url.config()}
-
-
-
-# import dj_database_url
-# db_from_env = dj_database_url.config(conn_max_age=500)
-# DATABASES['default'].update(db_from_env)
