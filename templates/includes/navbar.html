@@ -20,8 +20,14 @@
     <ul class="navbar-nav">
 		<li><a href="#" class="nav-link"> <i class="fa fa-envelope"></i> Email </a></li>
 		<li><a href="#" class="nav-link"> <i class="fa fa-phone"></i> Call us </a></li>
+
 	{% if user.is_admin == True %}
-		<button>ADMIN DASHBOARD</button>
+		{% load admin_urls %}
+		<!--<button href="{% url 'store' %}">ADMIN DASHBOARD</button>-->
+		<a href="admin" class="btn btn-secondary">ADMIN DASHBOARD</a>
+
+	{% endif %}
+
 	</ul> <!-- list-inline //  -->
   </div> <!-- navbar-collapse .// -->
 </div> <!-- container //  -->
