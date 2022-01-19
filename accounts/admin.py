@@ -21,5 +21,4 @@ class AccountAdmin(UserAdmin):
     fieldsets = ()
 
 admin.site.register(Account, AccountAdmin)
-admin.site.index_template = 'admin/base.html'
 admin.autodiscover()
