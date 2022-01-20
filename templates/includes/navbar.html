@@ -3,6 +3,10 @@
 
 <header class="section-header">
 
+{% block script %}
+<script type="text/javascript" src="{% static 'js/zoom.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-2.0.0.min.js' %}"></script>
+{% endblock %}
 
 <nav class="navbar p-md-0 navbar-expand-sm navbar-light border-bottom">
 <div class="container">
@@ -16,8 +20,10 @@
 	{% load admin_urls %}
 		<a href="{% url 'admin' %}" style="background-color:#1f1ccd" class="btn btn-danger">ADMIN DASHBOARD</a>
 		{% else %}
-		<li><a href="#" class="nav-link"> <i class="fa fa-envelope"></i> Email </a></li>
-		<li><a href="#" class="nav-link"> <i class="fa fa-phone"></i> Call us </a></li>
+		<li><a img src="{% static 'images/email_devlop.png' %}"  alt="" class="zoom" style="border-right-width: 0px; border-right-style: solid; margin-right: 8px;"><i class="fa fa-envelope" style="margin-top: 11px;"></i> Email </a></li>
+		<li><a img src="{% static 'images/callus_devlop.png' %}" alt="" class="zoom" style="border-right-width: 0px; border-right-style: solid; margin-right: 28px;"> <i class="fa fa-phone" style="margin-top: 11px;"></i> Call us </a></li>
+		<li><a style="background-color:#f5ea30" class="nav-link">This site is under development</a></li>
+
 	{% endif %}
 
 	</ul> <!-- list-inline //  -->
@@ -82,14 +88,14 @@
 							<a href="{% url 'logout' %}"> Logout</a>
 					</div>
 					{% endif %}
-					<br>
+
 					<a href="{% url 'cart' %}" class="widget-header pl-3 ml-3">
 					{% if cart_count == 0 %}
-						<div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart" style="color:#dbd6c4"></i></div>
+						<div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart" style="color:#e8e7d0;margin-top: 8px;"></i></div>
 						<span class="badge badge-pill badge-danger notify">{{ cart_count }}</span>
 						{% else %}
-						<div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart" style="color:#008561"></i></div>
-						<span class="badge badge-pill badge-danger notify">{{ cart_count }}</span>
+						<div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart" style="color:#008561;margin-top: 8px;"></i></div>
+						<span class="badge badge-pill badge-danger notify"style="margin-top: 6px;">{{ cart_count }}</span>
 
 					{% endif %}
 					</a>
@@ -99,5 +105,18 @@
 	</div> <!-- container.// -->
 
 </section> <!-- header-main .// -->
+
+	<!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- The Close Button -->
+<!--        <span class="close">&times;</span>-->
+
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
 
 </header> <!-- section-header.// -->
