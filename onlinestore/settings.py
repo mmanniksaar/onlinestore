@@ -82,12 +82,12 @@ WSGI_APPLICATION = 'onlinestore.wsgi.application'
 AUTH_USER_MODEL = 'accounts.Account'
 
 #Database
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': str(BASE_DIR / 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': str(BASE_DIR / 'db.sqlite3'),
+    }
+}
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
