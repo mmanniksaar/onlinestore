@@ -37,7 +37,7 @@
 <tr>
 	<td>
 		<figure class="itemside align-items-center">
-			<div><img src="{{ cart_item.product.product_image.url }}" class="zoom" width=80 height=80 alt="{{ cart_item.product.product_name }}"></div>
+			<div><img src="{{ cart_item.product.product_image.url }}" class="zoom" width=80 height=80 alt="{{ cart_item.product.product_name }}" alt="My image"></div>
 			<figcaption class="info">
 				<a href="{{ cart_item.product.get_url }}" class="title text-dark">{{ cart_item.product.product_name }}</a>
 			</figcaption>
@@ -77,7 +77,7 @@
 </div> <!-- card.// -->
 <br>
 	<div class="text-center">
-		<a href="{% url 'store' %}" class="btn btn-primary" style="background-color:#482809"; >Continue shopping</a>
+		<a href="{% url 'store' %}" class="btn btn-primary" style="background-color:#482809">Continue shopping</a>
 	</div>
 	</aside> <!-- col.// -->
 	<aside class="col-lg-3">
@@ -117,7 +117,6 @@
 </div> <!-- container .//  -->
 </section>
 <!-- ========================= SECTION CONTENT END// ========================= -->
-
 <!-- The Modal -->
     <div id="myModal" class="modal">
 

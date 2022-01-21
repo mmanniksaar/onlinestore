@@ -10,10 +10,12 @@ $(document).ready(function() {
     });
 
 // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-    if (event.target == modal || event.target == modalImg) {
+    window.onclick = function(event)
+    {
+    if (event.target == modal || event.target == modalImg)
+    {
         modal.style.display = "none";
-  }
-}
-});
+        }
+       }
+   });
 

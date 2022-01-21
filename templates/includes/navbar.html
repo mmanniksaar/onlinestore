@@ -1,6 +1,5 @@
 {% load static %}
 
-
 <header class="section-header">
 
 {% block script %}
@@ -23,7 +22,6 @@
 		<li><a img src="{% static 'images/email_devlop.png' %}"  alt="" class="zoom" style="border-right-width: 0px; border-right-style: solid; margin-right: 8px;"><i class="fa fa-envelope" style="margin-top: 11px;"></i> Email </a></li>
 		<li><a img src="{% static 'images/callus_devlop.png' %}" alt="" class="zoom" style="border-right-width: 0px; border-right-style: solid; margin-right: 28px;"> <i class="fa fa-phone" style="margin-top: 11px;"></i> Call us </a></li>
 		<li><a style="background-color:#e8e7d0" class="nav-link">This site is under development (PythonRemoteEE5 ---- project)</a></li>
-
 	{% endif %}
 
 	</ul> <!-- list-inline //  -->
@@ -106,11 +104,13 @@
 
 </section> <!-- header-main .// -->
 
+</header> <!-- section-header.// -->
+
 	<!-- The Modal -->
     <div id="myModal" class="modal">
 
         <!-- The Close Button -->
-<!--        <span class="close">&times;</span>-->
+        <span class="close">&times;</span>
 
         <!-- Modal Content (The Image) -->
         <img class="modal-content" id="img01">
@@ -118,5 +118,3 @@
         <!-- Modal Caption (Image Text) -->
         <div id="caption"></div>
     </div>
-
-</header> <!-- section-header.// -->
