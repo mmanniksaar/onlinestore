@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'store',
     'carts',
     'cloudinary',
+    'location_field.apps.DefaultConfig',
 ]
 
 
@@ -142,7 +143,15 @@ EMAIL_HOST_USER = 'onlinestorez700@gmail.com'
 EMAIL_HOST_PASSWORD = 'mRibonukleiin1977+'
 EMAIL_USE_TLS = True
 
+#LOCATION_FIELD_PATH = settings.STATIC_URL + 'location_field'
 
+
+LOCATION_FIELD = {
+ #   'provider.google.api': '//maps.google.com/maps/api/js?sensor=false',
+    'provider.google.api_key': 'AIzaSyCJjrJOth0XfqOEv6SY8y7uNYdAfkFTwLI',
+    'provider.google.api_libraries': '',
+    'provider.google.map.type': 'ROADMAP',
+}
 
 if 'DATABASE_URL' in os.environ:
     import dj_database_url
