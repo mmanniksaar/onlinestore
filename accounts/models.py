@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from location_field.models.plain import PlainLocationField
 
-
-
 class MyAccountManager(BaseUserManager):
     # Create normal user
     def create_user(self, first_name, last_name, username, email, password=None):
@@ -55,8 +53,8 @@ class Account(AbstractBaseUser):
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
     is_superadmin = models.BooleanField(default=False)
-    city = models.CharField(max_length=255, default= 'PORVOO')
-    location = PlainLocationField(based_fields=['city'], zoom=7, default= '12')
+    city = models.CharField(max_length=255, default= '')
+    location = PlainLocationField(based_fields=['city'], zoom=7, default='58.91599192355906,25.400390625') 
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
@@ -71,14 +69,3 @@ class Account(AbstractBaseUser):
 
     def has_module_perms(self, add_label):
         return True
-
-
-# from django import forms
-# from django.contrib.gis.geos import Point
-# 
-# from location_field.forms.plain import PlainLocationField
-# 
-# 
-# class Address(forms.Form):
-#     city = forms.CharField()
-#     location = LocationField(based_fields=['city'], initial=Point(-49.1607606, -22.2876834))
