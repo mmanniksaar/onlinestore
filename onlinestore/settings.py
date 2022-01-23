@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = config('SECRET_KEY')
-SECRET_KEY = '###'
+SECRET_KEY = '505ktt=5@g=h$rpd9%^i@wis-2xg7k8mclqj9o@nzupy@oadq)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = config('DEBUG', cast=bool)
@@ -36,9 +36,9 @@ INSTALLED_APPS = [
 
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': '###',
-    'API_KEY': '###',
-    'API_SECRET': '###',
+    'CLOUD_NAME': 'do303mku5',
+    'API_KEY': '359622687652815',
+    'API_SECRET': '7wXzvmvueHOxgXLwSvdPhA2gYtQ',
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
@@ -83,12 +83,12 @@ WSGI_APPLICATION = 'onlinestore.wsgi.application'
 
 AUTH_USER_MODEL = 'accounts.Account'
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': str(BASE_DIR / 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': str(BASE_DIR / 'db.sqlite3'),
+    }
+}
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -140,7 +140,7 @@ MEDIA_ROOT = BASE_DIR /'media/'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'onlinestorez700@gmail.com'
-EMAIL_HOST_PASSWORD = '###'
+EMAIL_HOST_PASSWORD = '+mSd5Ti--dQvWaRr'
 EMAIL_USE_TLS = True
 
 LOCATION_FIELD = {
@@ -149,7 +149,7 @@ LOCATION_FIELD = {
     'map.zoom': 7,
     'search.provider': 'google',
     'search.suffix': '',
-    'provider.google.api_key': '###',
+    'provider.google.api_key': 'AIzaSyCJjrJOth0XfqOEv6SY8y7uNYdAfkFTwLI',
     'provider.google.api_libraries': '',
     'provider.google.map.type': 'ROADMAP',
 }
