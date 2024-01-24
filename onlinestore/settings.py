@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from decouple import config
+#from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -83,12 +83,12 @@ WSGI_APPLICATION = 'onlinestore.wsgi.application'
 
 AUTH_USER_MODEL = 'accounts.Account'
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': str(BASE_DIR / 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': str(BASE_DIR / 'db.sqlite3'),
+    }
+}
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -144,7 +144,8 @@ EMAIL_HOST_PASSWORD = '+mSd5Ti--dQvWaRr'
 EMAIL_USE_TLS = True
 
 LOCATION_FIELD = {
- #   'provider.google.api': '//maps.google.com/maps/api/js?sensor=false',
+ #   'provider.google.api': '//maps.google.com/maps/
+    #  api/js?sensor=false',
     'map.provider': 'google',
     'map.zoom': 7,
     'search.provider': 'google',
