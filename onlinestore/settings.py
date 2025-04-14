@@ -1,25 +1,27 @@
 import os
 from pathlib import Path
-#from decouple import config
+import dj_database_url
+from dotenv import load_dotenv
+import cloudinary
+from django.contrib.messages import constants as messages
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+load_dotenv()
+
+
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = config('SECRET_KEY')
-SECRET_KEY = '505ktt=5@g=h$rpd9%^i@wis-2xg7k8mclqj9o@nzupy@oadq)'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = config('DEBUG', cast=bool)
-DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.onlinestore-700.herokuapp.com', 'onlinestore-700.com', 'www.onlinestore-700.com']
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-# Application definition
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1').split(',')
+
 INSTALLED_APPS = [
     'admin_interface',
     'colorfield',
     'cloudinary_storage',
+    'cloudinary',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -30,18 +32,17 @@ INSTALLED_APPS = [
     'accounts',
     'store',
     'carts',
-    'cloudinary',
     'location_field.apps.DefaultConfig',
 ]
 
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'do303mku5',
-    'API_KEY': '359622687652815',
-    'API_SECRET': '7wXzvmvueHOxgXLwSvdPhA2gYtQ',
+    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
 }
-
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -75,7 +76,7 @@ TEMPLATES = [
 ]
 
 
-# only if django version >= 3.0
+
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 SILENCED_SYSTEM_CHECKS = ['security.W019']
 
@@ -83,14 +84,7 @@ WSGI_APPLICATION = 'onlinestore.wsgi.application'
 
 AUTH_USER_MODEL = 'accounts.Account'
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': str(BASE_DIR / 'db.sqlite3'),
-#     }
-# }
 
-# Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -106,12 +100,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
 
-# Internationalization
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -122,7 +114,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -132,16 +123,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 STATICFILES_DIRS = [
     'onlinestore/static',
 ]
-#media files conf
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR /'media/'
 
-#SMTP config
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'onlinestorez700@gmail.com'
-EMAIL_HOST_PASSWORD = '+mSd5Ti--dQvWaRr'
-EMAIL_USE_TLS = True
+EMAIL_HOST = os.environ.get('EMAIL_HOST_NAME')
+EMAIL_PORT = os.environ.get('EMAIL_PORT_NUMBER')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER_EMAIL')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PWD')
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS_STATE')
+
+
 
 LOCATION_FIELD = {
  #   'provider.google.api': '//maps.google.com/maps/
@@ -150,11 +141,23 @@ LOCATION_FIELD = {
     'map.zoom': 7,
     'search.provider': 'google',
     'search.suffix': '',
-    'provider.google.api_key': 'AIzaSyCJjrJOth0XfqOEv6SY8y7uNYdAfkFTwLI',
+    'provider.google.api_key': os.getenv('GOOGLE_API_KEY'),
     'provider.google.api_libraries': '',
     'provider.google.map.type': 'ROADMAP',
 }
 
 if 'DATABASE_URL' in os.environ:
-    import dj_database_url
     DATABASES = {'default': dj_database_url.config()}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+
+cloudinary.config( 
+    cloud_name = os.getenv('CLOUD_NAME'), 
+    api_key = os.getenv('API_KEY'), 
+    api_secret = os.getenv('API_SECRET') 
+)
